@@ -1,0 +1,188 @@
+/* CSS Reset */
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: cursive;
+    box-sizing: border-box;
+}
+
+/* Variable */
+:root{
+    --primary-color: rgb(99 46 101);
+}
+
+/* Utility Classes */
+.center{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h2{
+    font-size: 1.8rem;
+    margin: 15px;
+}
+
+button{  
+    border: none;
+    padding: 9px 15px;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin: 15px 0px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+button:hover{
+    background-color: rgb(137, 80, 145);
+}
+
+/* Designing of the slider starts here */
+body{
+    background-image: linear-gradient(var(--primary-color), rgb(194, 147, 201));
+    height: 100vh;
+    display: flex;
+}
+
+/* main card */
+#main-card{
+    position: absolute;
+    height: 75vh;
+    width: 50vw;
+    display: flex;
+}
+
+/* card for swiping forms */
+#mini-card{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* setting background of mini-card */
+#mini-card::before{
+    content: "";
+    background-image: url("img/slider-bg.jpeg");
+    position: absolute;
+    background-attachment: fixed;
+    background-size: cover;   
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.cards h2{
+    color: white;
+    text-shadow: 7px 7px 13px var(--primary-color), 0 0 15px #2e1136;
+}
+
+/* styling formcard for forms */
+#form-card{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    transition: all 0.5s ease-in-out 0s;
+    display: flex;
+    overflow: hidden;
+}
+
+/* when active class is added to form-card by clicking signup button using javascript */
+#form-card.active{
+    left: 50%;
+}
+
+#form-card #signUpForm{
+    visibility: hidden;
+    transition: all 0.1s ease 0s;
+}
+
+#form-card #signInForm{
+    transition: all 0.1s ease 0s;
+}
+
+/* swiping the forms */
+#form-card.active #signUpForm{
+    visibility: visible;
+}
+
+#form-card.active #signInForm{
+    visibility: hidden;
+
+}
+
+/* styling forms */
+#form-card form{
+    position: absolute;
+    display: flex; 
+    flex-direction: column;
+    color:var(--primary-color) ;
+}
+
+#form-card form input{
+    display: block;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 0.79rem;
+    border-bottom: 2px solid var(--primary-color);
+    margin: 15px 4px;
+}
+
+#form-card a{
+    display: block;
+    color: var(--primary-color);
+}
+
+
+/* media query for width 760px or less*/
+@media screen and (max-width: 760px)
+{
+    /* using the font-size and margin */
+    h2{
+        font-size: 1.2rem;
+        margin: 7px;
+    }
+
+    /* changing the direction of flex to column */
+    #mini-card{
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #form-card{      
+        width: 100%;
+        height: 80%;
+   
+    }
+    .cards{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #form-card.active{
+        top: 22%;
+        left: 0;
+    }
+
+    button{  
+        padding: 4px 10px;
+        font-size: 0.7rem;
+    }
+
+    #form-card form input{  
+        font-size: 0.7rem;
+        width: 134px;
+    }
+
+    #form-card a{
+        font-size: 0.7rem;
+    }
+}

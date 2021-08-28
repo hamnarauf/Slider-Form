@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS StyleSheet -->
+        <link rel="stylesheet" href="style.css">
+        <title>Slider Form</title>
+    </head>
+
+    <body class="center">
+        <!-- Main card components: mini-card, form-card -->
+        <div id="main-card" class="center">
+
+            <!-- mini-card components: signIn-card, signUp-card -->
+            <div id="mini-card">
+                <!-- go to signin form -->
+                <div id="signIn-card" class="cards">
+                    <h2>Already Have an<br>Account?</h2>
+                    <button id="signInBtn" onclick="formInActive()">Sign In</button>
+                </div>
+                <!-- go to signup form  -->
+                <div id="signUp-card" class="cards">
+                    <h2>Don't Have an<br>Account?</h2>
+                    <button id="signUpBtn" onclick="formActive()">Sign Up</button>
+                </div>
+            </div>
+
+            <!-- form-card components: signup form, signin form -->
+            <div id="form-card" class="center">
+                <!-- signin form -->
+                <form action="#" id="signInForm" class="center">
+                    <!-- form header -->
+                    <form-header><h2>Sign In</h2></form-header>
+                    <!-- form body -->
+                    <form-body>
+                        <input type="text" placeholder="Enter your Username">
+                        <input type="password" placeholder="Enter your Password">
+                        <button id="signIn">Sign In</button>
+                        <a href="">Forgot password?</a>
+                    </form-body>
+                </form>
+
+                <!-- signup form -->
+                <form action="#" id="signUpForm" class="center">
+                    <!-- form header -->
+                    <form-header><h2>Sign Up</h2></form-header>
+                    <!-- form body -->
+                    <form-body>
+                        <input type="text" placeholder="Enter your Username">
+                        <input type="email" placeholder="Enter your Email">
+                        <input type="password" placeholder="Enter your Password">
+                        <button id="signUp">Sign Up</button>
+                    </form-body>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Javascript -->
+        <script>
+            // function for activating signup form
+            function formActive() {
+                let formCard = document.getElementById("form-card");
+                // including an active class to form-card
+                formCard.classList.add("active")
+            }
+
+            // function for activating signinform, i.e deactivating form-card
+            function formInActive() {
+                let formCard = document.getElementById("form-card");
+                // removing active class from form-card
+                formCard.classList.remove("active")
+            }
+        </script>
+    </body>
+
+</html>
